@@ -1,0 +1,34 @@
+:root {
+    --grid-colone: 1;
+    --grid-row: 1;
+  }
+*{/*cest global pour enlever le blanc a l'entour du browser*/
+    box-sizing: border-box;
+    padding: 0;
+
+}
+.choix,.tout_effacer{
+    margin-left: 10px;
+    width:250px;
+    height: 100px;
+}
+.efface,.draw,.couleur{
+    margin:10px;
+    width: 55px;
+    height:50px;
+}
+#container{
+    display:inline grid;
+    grid-template-rows: repeat(var(--grid-row),1fr);
+    grid-template-columns: repeat(var(--grid-colone),1fr);
+    width: 95vw;
+    height: 95vh;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.box{
+    /*border:1px solid black;*/
+    background-color: rgb(172, 172, 172);
+}
+
