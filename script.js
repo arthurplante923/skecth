@@ -3,7 +3,7 @@ const container=document.querySelector("#container");
 
 const button=document.createElement("button");
 button.classList.add("choix");
-button.textContent="DIMENSION DU DESSIN";
+button.textContent="NOUVEAU DESSIN";
 clickeur.appendChild(button);
 
 const tout_effacer=document.createElement("button");
@@ -11,20 +11,41 @@ tout_effacer.classList.add("tout_effacer");
 tout_effacer.textContent="TOUT EFFACER";
 clickeur.appendChild(tout_effacer);
 
-const draw=document.createElement("button");
-draw.classList.add("draw");
-draw.textContent="DESSIN";
-clickeur.appendChild(draw);
-
 const efface=document.createElement("button");
 efface.classList.add("efface");
 efface.textContent="EFFACE";
 clickeur.appendChild(efface);
-
-//const couleur=document.createElement("button");
-//couleur.classList.add("couleur");
-//couleur.textContent="Couleur";
-//clickeur.appendChild(couleur);
+ 
+const bleu=document.createElement("button");
+const jaune=document.createElement("button");
+const rouge=document.createElement("button");
+const vert=document.createElement("button");
+const noir=document.createElement("button");
+const rose=document.createElement("button");
+bleu.classList.add("bleu");
+jaune.classList.add("jaune");
+rouge.classList.add("rouge");
+vert.classList.add("vert");
+noir.classList.add("noir");
+rose.classList.add("rose");
+bleu.style.backgroundColor="blue";
+jaune.style.backgroundColor="yellow";
+rose.style.backgroundColor="pink";
+rouge.style.backgroundColor="red";
+vert.style.backgroundColor="green";
+noir.style.backgroundColor="black";
+bleu.textContent="bleu";
+jaune.textContent="jaune";
+vert.textContent="vert";
+noir.textContent="noir";
+rose.textContent="rose";
+rouge.textContent="rouge";
+clickeur.appendChild(bleu);
+clickeur.appendChild(jaune);
+clickeur.appendChild(rouge);
+clickeur.appendChild(vert);
+clickeur.appendChild(noir);
+clickeur.appendChild(rose);
 
 
 button.addEventListener("click",()=>{
@@ -47,9 +68,34 @@ function dessin(colone,row){
         const box=document.createElement("div");
         box.classList.add("box");
         container.appendChild(box);
-        draw.addEventListener("click",()=>{//pour dessiner sur la grille
+        jaune.addEventListener("click",()=>{
+            box.addEventListener("mouseover",()=>{
+                box.style.backgroundColor="yellow";
+            });
+        });
+        bleu.addEventListener("click",()=>{
+            box.addEventListener("mouseover",()=>{
+                box.style.backgroundColor="blue";
+            });
+        });
+        vert.addEventListener("click",()=>{
+            box.addEventListener("mouseover",()=>{
+                box.style.backgroundColor="green";
+            });
+        });
+        rose.addEventListener("click",()=>{
+            box.addEventListener("mouseover",()=>{
+                box.style.backgroundColor="pink";
+            });
+        });
+        rouge.addEventListener("click",()=>{
             box.addEventListener("mouseover",()=>{
                 box.style.backgroundColor="red";
+            });
+        });
+        noir.addEventListener("click",()=>{
+            box.addEventListener("mouseover",()=>{
+                box.style.backgroundColor="black";
             });
         });
         efface.addEventListener("click",()=>{//pour effacer la couleur de la grille
