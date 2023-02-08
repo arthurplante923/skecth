@@ -16,7 +16,7 @@ efface.classList.add("efface");
 efface.textContent="EFFACE";
 clickeur.appendChild(efface);
  
-const bleu=document.createElement("button");
+const bleu=document.createElement("button");//bouton pour choisir couleurs et tout ceux en-bas aussi.
 const jaune=document.createElement("button");
 const rouge=document.createElement("button");
 const vert=document.createElement("button");
@@ -48,7 +48,7 @@ clickeur.appendChild(noir);
 clickeur.appendChild(rose);
 
 
-button.addEventListener("click",()=>{
+button.addEventListener("click",()=>{ //choisit la grosseur du canevas
     let colone=0;
     let row=0;
     colone=prompt("Combien de carrés de colone");
@@ -56,55 +56,82 @@ button.addEventListener("click",()=>{
     dessin(colone,row);
 });
 
-tout_effacer.addEventListener("click",()=>{
-    const clean=document.getElementById("container");// pour tout effacer.
+tout_effacer.addEventListener("click",()=>{ 
+    const clean=document.getElementById("container");// pour tout effacer le canevas.
     clean.innerHTML="";
 });
 
+
 function dessin(colone,row){
     container.style.setProperty('--grid-colone', colone);//pour setup la grille
-    container.style.setProperty('--grid-row', row);//pour setup la gril
+    container.style.setProperty('--grid-row', row);//pour setup la grille
     for(let i=0;i<(colone*row);i++){//pour setup la grille
         const box=document.createElement("div");
         box.classList.add("box");
         container.appendChild(box);
-        jaune.addEventListener("click",()=>{
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="yellow";
-            });
-        });
-        bleu.addEventListener("click",()=>{
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="blue";
-            });
-        });
-        vert.addEventListener("click",()=>{
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="green";
-            });
-        });
-        rose.addEventListener("click",()=>{
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="pink";
-            });
-        });
-        rouge.addEventListener("click",()=>{
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="red";
-            });
-        });
-        noir.addEventListener("click",()=>{
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="black";
-            });
-        });
-        efface.addEventListener("click",()=>{//pour effacer la couleur de la grille
-            box.addEventListener("mouseover",()=>{
-                box.style.backgroundColor="rgb(172,172,172)"
-            });
-        });
+        color(box);
     }
 }
+
+function color(box){
+    jaune.addEventListener("click",()=>{
+        const makeJaune = event => event.target.style.backgroundColor = "yellow";
+        box.addEventListener("mousedown",makeJaune);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeJaune(event);
+        });
+    });
+
+    bleu.addEventListener("click",()=>{
+        const makeBlue = event => event.target.style.backgroundColor = "blue";
+        box.addEventListener("mousedown",makeBlue);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeBlue(event);
+        });
+    });
+
+    vert.addEventListener("click",()=>{
+        const makeVert = event => event.target.style.backgroundColor = "green";
+        box.addEventListener("mousedown",makeVert);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeVert(event);
+        });
+    });
+
+    rose.addEventListener("click",()=>{
+        const makeRose = event => event.target.style.backgroundColor = "pink";
+        box.addEventListener("mousedown",makeRose);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeRose(event);
+        });
+    });
+
+    rouge.addEventListener("click",()=>{
+        const makeRouge = event => event.target.style.backgroundColor = "red";
+        box.addEventListener("mousedown",makeRouge);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeRouge(event);
+        });
+    });
+
+    noir.addEventListener("click",()=>{
+        const makeNoir = event => event.target.style.backgroundColor = "black";
+        box.addEventListener("mousedown",makeNoir);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeNoir(event);
+        });
+    });
+
+    efface.addEventListener("click",()=>{//pour effacer la couleur de la grille
+        const makeEfface = event => event.target.style.backgroundColor = "rgb(172,172,172)";
+        box.addEventListener("mousedown",makeEfface);
+        box.addEventListener("mousemove", event => {
+          if (event.buttons == 1) makeEfface(event);
+        });
+    });
+}
+
+
 
 
 
