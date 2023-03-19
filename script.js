@@ -13,17 +13,22 @@ const button_color=document.querySelectorAll(".couleur");
 
 
 button.addEventListener("click",()=>{ //choisit la grosseur du canevas
+
+    const clean=document.getElementById("container");// pour tout effacer le canevas.
+    clean.innerHTML="";
     let colone=0;
     let row=0;
-    colone=prompt("Combien de carrés de colone");
-    row=prompt("Combien de carrés de rangé");
+    colone=prompt("Combien de pixels de haut");
+    row=prompt("Combien de pixels de long");
     dessin(colone,row);
 });
 
-tout_effacer.addEventListener("click",()=>{ 
-    const clean=document.getElementById("container");// pour tout effacer le canevas.
-    clean.innerHTML="";
-});
+function effacer_tout(box){
+  tout_effacer.addEventListener("click",()=>{ 
+    box.style.backgroundColor="rgb(172,172,172)";
+  });
+}
+
 
 
 function dessin(colone,row){
@@ -34,6 +39,7 @@ function dessin(colone,row){
         box.classList.add("box");
         container.appendChild(box);
         color(box);
+        effacer_tout(box);
     }
 }
 
